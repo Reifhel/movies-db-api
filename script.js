@@ -1,29 +1,11 @@
-const movies = [
-    {
-      image: 'https://img.elo7.com.br/product/original/3FBA809/big-poster-filme-batman-2022-90x60-cm-lo002-poster-batman.jpg',
-      title: 'Batman',
-      rating: 9.2,
-      year: 2022,
-      description: "Descrição do filme…",
-      isFavorited: true,
-    },
-    {
-      image: 'https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg',
-      title: 'Avengers',
-      rating: 9.1,
-      year: 2019,
-      description: "Descrição do filme…",
-      isFavorited: false
-    },
-    {
-      image: 'https://upload.wikimedia.org/wikipedia/en/1/17/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg',
-      title: 'Doctor Strange',
-      rating: 9.2,
-      year: 2022,
-      description: "Descrição do filme",
-      isFavorited: false
-    },
-  ];
+import { api_key } from './api_key.js';
+const apiKey = api_key();
+
+async function getPopularMovies() {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language-pt-BR`);
+    const data = await response.json();
+    return data.results;
+}
 
 function renderMovie(movie) {
     const movies = document.getElementById('filmes');
@@ -33,15 +15,15 @@ function renderMovie(movie) {
     <div class="movie-informations">
 
         <div class="movie-image">
-            <img src="${movie.image}" alt="Batman (2022)"/>
+            <img src=https://image.tmdb.org/t/p/w500${movie.poster_path} alt="${movie.title}"/>
         </div>
 
         <div class="movie-text">
-            <h4>${movie.title} (${movie.year})</h4>
+            <h4>${movie.title} (${movie.release_date.substring(0,4)})</h4>
             <div class="rating-favorites">
                 <div class="rating">
                     <img src="images/star.png" alt="Star Icon"/>
-                    <span>${movie.rating}</span>
+                    <span>${movie.vote_average}</span>
                 </div>
                 <div class="favorite">
                     <img src="images/heart.svg" alt="Star Icon"/>
@@ -51,7 +33,7 @@ function renderMovie(movie) {
         </div>
 
         <div class="movie-description">
-            <span>${movie.description}</span>
+            <span>${movie.overview}</span>
         </div>
 
     </div>
@@ -60,4 +42,14 @@ function renderMovie(movie) {
     return movieEl;
 }
 
-movies.forEach(movie => renderMovie(movie))
+async function init() {
+    const movies = await getPopularMovies();
+    movies.forEach(movie => {
+        renderMovie(movie);
+    });
+    
+
+
+}
+
+init()
