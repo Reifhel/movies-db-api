@@ -1,5 +1,5 @@
 :root {
-  --background-color: #17162E;
+  --background-color: #260240;
 }
 
 * {
@@ -29,6 +29,16 @@ h2 {
   margin: 2rem 0;
 }
 
+.form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.form button{
+  background-color: transparent;
+  border: none;
+}
 .input-container {
   background-color: rgba(255, 255, 255, 0.2);
   width: 50%;
@@ -58,20 +68,26 @@ h2 {
   margin-bottom: 2rem;
   color: #FFF;
 }
-
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .movie {
   color: #FFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  background: #1D1C3B;
+  background: #2f0144;
   border-radius: 0.5rem; 
   padding: 1rem;
   margin: 0 auto;
   margin-bottom: 2rem;
   max-width: 1024px;
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .movie .movie-image {
