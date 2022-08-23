@@ -43,7 +43,7 @@ function cleanAllMovies() {
 function favoriteButtonPressed(event, movie) {
   const favoriteState = {
     favorited: './images/heart-fill.svg',
-    notFavorited: './images/heart.svg'
+    notFavorited: 'images/heart.svg'
   }
   if(event.target.src.includes(favoriteState.notFavorited)) {
     // aqui ele será favoritado
