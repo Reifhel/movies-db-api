@@ -43,7 +43,7 @@ function cleanAllMovies() {
 function favoriteButtonPressed(event, movie) {
   const favoriteState = {
     favorited: './images/heart-fill.svg',
-    notFavorited: 'images/heart.svg'
+    notFavorited: './images/heart.svg'
   }
   if(event.target.src.includes(favoriteState.notFavorited)) {
     // aqui ele será favoritado
@@ -107,7 +107,7 @@ function renderMovie(movie) {
   ratingContainer.classList.add('rating')
 
   const starImage = document.createElement('img')
-  starImage.src = 'images/star.png'
+  starImage.src = './images/star.png'
   starImage.alt = 'Star'
 
   const movieRate = document.createElement('span')
@@ -122,7 +122,7 @@ function renderMovie(movie) {
   favorite.classList.add('favorite')
 
   const favoriteImage = document.createElement('img')
-  favoriteImage.src = isFavorited ? 'images/heart-fill.svg' : 'images/heart.svg'
+  favoriteImage.src = isFavorited ? './images/heart-fill.svg' : './images/heart.svg'
   favoriteImage.alt = 'Heart'
   favoriteImage.classList.add('favoriteImage')
   favoriteImage.addEventListener('click', (event) => favoriteButtonPressed(event, movie))
