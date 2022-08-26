@@ -1,4 +1,4 @@
-import {apiKey} from '../secreto/api_key.js'
+import {apiKey} from './api_key.js'
 
 
 async function searchMovieByName(title) {
