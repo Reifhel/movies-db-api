@@ -4,10 +4,12 @@ on:
   page_build
 
 jobs:
-  steps:
-    - name: create apikey.js
-    - shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.API_KEY }}
-      run: |
-        cd services && echo -e 'export let apiKey = "$SUPER_SECRET"';
+  my-job:
+    runs-on: windows-latest
+    steps:
+      - name: Test
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.API_KEY }}
+        run: |
+          cd services && echo -e 'export let apiKey = "$SUPER_SECRET"';
