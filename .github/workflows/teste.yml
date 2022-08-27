@@ -1,0 +1,13 @@
+name: build api
+
+on:
+  page-build
+
+jobs:
+  steps:
+    - name: create apikey.js
+    - shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.API_KEY }}
+      run: |
+        cd services && echo -e 'export let apiKey = "$SUPER_SECRET"';
